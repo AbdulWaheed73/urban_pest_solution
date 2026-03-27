@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Bug, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 import { getIcon } from "@/lib/icons";
 import { Globe } from "lucide-react";
@@ -7,7 +8,7 @@ import { Globe } from "lucide-react";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden" style={{
-      background: "linear-gradient(135deg, #0f1f1a 0%, #1E293B 100%)",
+      background: "linear-gradient(135deg, #0e1240 0%, #1E293B 100%)",
     }}>
       {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/30 to-transparent" />
@@ -17,9 +18,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-5">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-forest to-forest-dark">
-                <Bug className="h-5 w-5 text-white" />
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="Urban Pest Solution"
+                width={44}
+                height={44}
+                className="rounded-full"
+              />
               <div className="flex flex-col">
                 <span className="text-lg font-extrabold leading-tight text-white">
                   Urban <span className="text-forest">Pest</span>

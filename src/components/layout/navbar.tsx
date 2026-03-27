@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Bug, ArrowRight } from "lucide-react";
+import { Menu, Phone, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 import { cn } from "@/lib/utils";
 
@@ -30,9 +31,13 @@ export function Navbar() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-forest to-forest-dark shadow-md shadow-forest/20 group-hover:shadow-forest/30 transition-shadow">
-            <Bug className="h-5 w-5 text-white" />
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt="Urban Pest Solution"
+            width={44}
+            height={44}
+            className="rounded-full shadow-md group-hover:shadow-lg transition-shadow"
+          />
           <div className="flex flex-col">
             <span className="text-lg font-extrabold leading-tight text-charcoal">
               Urban <span className="text-forest">Pest</span>

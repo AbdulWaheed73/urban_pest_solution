@@ -2,7 +2,7 @@ import { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
   companyName: "Urban Pest Solution",
-  tagline: "Where Science Meets Safety",
+  tagline: "An Environmental Perspective",
   phone: "+92 321 882 2080",
   email: "info@urbanpestsolution.com",
   address: "106-A, Str. 15, State Life Housing Society, Lahore, Pakistan",

@@ -27,7 +27,7 @@ const steps = [
 export function MethodologySection() {
   return (
     <section className="py-28 relative overflow-hidden" style={{
-      background: "linear-gradient(135deg, #0a2e24 0%, #155C4A 40%, #1a5c4d 100%)",
+      background: "linear-gradient(135deg, #0e1240 0%, #1A1F71 40%, #1e2470 100%)",
     }}>
       {/* Decorative elements */}
       <div className="absolute inset-0 dot-pattern opacity-[0.03]" />

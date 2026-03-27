@@ -16,7 +16,7 @@ export function CTASection({
     <section className="py-24 relative overflow-hidden bg-off-white">
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden p-12 lg:p-16 text-center" style={{
-          background: "linear-gradient(135deg, #0a2e24 0%, #155C4A 30%, #1F7A63 60%, #1a5c4d 100%)",
+          background: "linear-gradient(135deg, #0e1240 0%, #1A1F71 30%, #2E3692 60%, #1e2470 100%)",
         }}>
           {/* Decorative */}
           <div className="absolute inset-0 dot-pattern opacity-[0.04]" />

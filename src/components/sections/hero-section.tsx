@@ -27,12 +27,12 @@ export function HeroSection({
         compact ? "py-24 lg:py-32" : "py-32 lg:py-44"
       }`}
       style={{
-        background: "linear-gradient(135deg, #0a2e24 0%, #155C4A 30%, #1F7A63 60%, #1a5c4d 100%)",
+        background: "linear-gradient(135deg, #0e1240 0%, #1A1F71 30%, #2E3692 60%, #1e2470 100%)",
       }}
     >
       {/* Animated gradient mesh */}
       <div className="absolute inset-0 opacity-30 animate-gradient" style={{
-        background: "radial-gradient(ellipse at 20% 50%, rgba(245, 158, 11, 0.3) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(42, 174, 135, 0.4) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(21, 92, 74, 0.5) 0%, transparent 50%)",
+        background: "radial-gradient(ellipse at 20% 50%, rgba(45, 139, 78, 0.3) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(74, 82, 196, 0.4) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(26, 31, 113, 0.5) 0%, transparent 50%)",
         backgroundSize: "200% 200%",
       }} />
 
