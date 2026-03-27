@@ -32,7 +32,7 @@ export function CTASection({
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl tracking-tight">
               {title}
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/60">
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80">
               {subtitle}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -47,8 +47,7 @@ export function CTASection({
               <Button
                 render={<a href={`tel:${siteConfig.phone}`} />}
                 size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 px-10 py-6 text-base rounded-xl"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-6 text-base rounded-xl"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 Call Now

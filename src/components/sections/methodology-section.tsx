@@ -51,8 +51,8 @@ export function MethodologySection() {
         </div>
 
         <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-24 left-[16%] right-[16%] h-[2px]">
+          {/* Connecting line — vertically centered with icons */}
+          <div className="hidden lg:block absolute top-[48px] left-[16%] right-[16%] h-[2px]">
             <div className="h-full bg-gradient-to-r from-amber/40 via-white/20 to-forest/40 rounded-full" />
           </div>
 
@@ -73,7 +73,7 @@ export function MethodologySection() {
                 {/* Content card */}
                 <div className="glass rounded-2xl p-6 w-full group-hover:bg-white/[0.12] transition-colors duration-500">
                   <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{step.description}</p>
+                  <p className="text-white/80 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}

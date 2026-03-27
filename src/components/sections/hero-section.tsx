@@ -74,12 +74,7 @@ export function HeroSection({
               : "text-5xl sm:text-6xl lg:text-7xl"
           }`}
         >
-          {title.split(",").map((part, i) => (
-            <span key={i}>
-              {i > 0 && <br className="hidden sm:block" />}
-              {part}
-            </span>
-          ))}
+          {title}
         </h1>
 
         <p className={`mx-auto mt-8 max-w-2xl text-white/70 leading-relaxed ${compact ? "text-lg" : "text-lg sm:text-xl"}`}>
@@ -101,7 +96,7 @@ export function HeroSection({
                 render={<Link href={secondaryCtaHref} />}
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 px-10 py-6 text-base rounded-xl backdrop-blur-sm"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-6 text-base rounded-xl"
               >
                 {secondaryCtaText}
               </Button>
