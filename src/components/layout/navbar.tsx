@@ -9,6 +9,7 @@ import { Menu, Phone, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 import { cn } from "@/lib/utils";
+import { CartDrawer } from "@/components/shop/cart-drawer";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -70,7 +71,7 @@ export function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <a
             href={`tel:${siteConfig.phone}`}
             className="flex items-center gap-1.5 text-sm font-medium text-slate-mid hover:text-forest transition-colors"
@@ -78,6 +79,7 @@ export function Navbar() {
             <Phone className="h-3.5 w-3.5" />
             <span className="hidden lg:inline">{siteConfig.phone}</span>
           </a>
+          <CartDrawer />
           <Button
             render={<Link href="/contact" />}
             className="bg-forest hover:bg-forest-dark text-white font-semibold rounded-xl px-6 shadow-md shadow-forest/20 hover:shadow-forest/30 transition-all"
@@ -85,6 +87,11 @@ export function Navbar() {
             Get a Quote
             <ArrowRight className="ml-1.5 h-4 w-4" />
           </Button>
+        </div>
+
+        {/* Mobile — cart + menu */}
+        <div className="flex md:hidden items-center gap-1">
+          <CartDrawer />
         </div>
 
         {/* Mobile Nav */}

@@ -75,3 +75,28 @@ export interface SiteConfig {
   socialLinks: { platform: string; url: string; icon: string }[];
   navLinks: { label: string; href: string }[];
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  originalPrice?: number;
+  icon: string;
+  category: ProductCategory;
+  badge?: string;
+  inStock: boolean;
+}
+
+export type ProductCategory =
+  | "traps"
+  | "bait-stations"
+  | "sprays"
+  | "repellents"
+  | "monitoring"
+  | "protective-gear";
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
