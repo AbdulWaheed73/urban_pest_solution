@@ -10,15 +10,21 @@ import {
 } from "@/components/ui/carousel";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { testimonials } from "@/data/testimonials";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 bg-off-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative overflow-hidden" style={{
+      background: "linear-gradient(135deg, #0a2e24 0%, #155C4A 40%, #1a5c4d 100%)",
+    }}>
+      <div className="absolute inset-0 dot-pattern opacity-[0.03]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          badge="Testimonials"
           title="What Our Clients Say"
           subtitle="Trusted by leading organizations across Pakistan."
+          light
         />
         <Carousel
           opts={{ align: "start", loop: true }}
@@ -27,28 +33,35 @@ export function TestimonialsSection() {
           <CarouselContent className="-ml-4">
             {testimonials.map((t) => (
               <CarouselItem key={t.id} className="pl-4 md:basis-1/2">
-                <Card className="h-full border-border/50">
-                  <CardContent className="flex flex-col justify-between h-full p-6">
-                    <div>
-                      <Quote className="h-8 w-8 text-forest/20 mb-4" />
-                      <p className="text-sm text-slate-mid leading-relaxed italic">
-                        &ldquo;{t.quote}&rdquo;
-                      </p>
+                <div className="h-full glass rounded-2xl p-8 flex flex-col justify-between hover:bg-white/[0.12] transition-colors duration-500">
+                  <div>
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-amber text-amber" />
+                      ))}
                     </div>
-                    <div className="mt-6 pt-4 border-t border-border/50">
-                      <p className="font-semibold text-charcoal">{t.name}</p>
-                      <p className="text-xs text-slate-mid">
+                    <p className="text-white/80 leading-relaxed text-[15px]">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-forest to-amber text-white font-bold text-lg">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white">{t.name}</p>
+                      <p className="text-xs text-white/40">
                         {t.role}, {t.company}
                       </p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center gap-2 mt-8">
-            <CarouselPrevious className="static translate-y-0" />
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex justify-center gap-2 mt-10">
+            <CarouselPrevious className="static translate-y-0 bg-white/10 border-white/20 text-white hover:bg-white/20" />
+            <CarouselNext className="static translate-y-0 bg-white/10 border-white/20 text-white hover:bg-white/20" />
           </div>
         </Carousel>
       </div>

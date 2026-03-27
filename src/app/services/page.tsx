@@ -20,11 +20,12 @@ export default function ServicesPage() {
         compact
       />
 
-      <section className="py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="What We Offer"
-            subtitle="Comprehensive solutions across management systems, food safety, information security, and sustainability standards."
+            badge="What We Offer"
+            title="Comprehensive Solutions"
+            subtitle="Spanning management systems, food safety, information security, and sustainability standards."
           />
 
           {serviceCategories.map((category) => {
@@ -34,10 +35,13 @@ export default function ServicesPage() {
             if (categoryServices.length === 0) return null;
 
             return (
-              <div key={category.key} className="mb-16 last:mb-0">
-                <h3 className="text-2xl font-bold text-charcoal mb-6 border-l-4 border-forest pl-4">
-                  {category.label}
-                </h3>
+              <div key={category.key} className="mb-20 last:mb-0">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-8 w-1 rounded-full bg-gradient-to-b from-forest to-amber" />
+                  <h3 className="text-2xl font-extrabold text-charcoal">
+                    {category.label}
+                  </h3>
+                </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {categoryServices.map((service) => (
                     <ServiceCard key={service.id} service={service} />

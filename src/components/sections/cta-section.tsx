@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Sparkles } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
 interface CTASectionProps {
@@ -10,35 +10,51 @@ interface CTASectionProps {
 
 export function CTASection({
   title = "Ready to Protect Your Space?",
-  subtitle = "Choose Urban Pest Solution for comprehensive, technology-driven pest control. Our commitment to excellence and structured A.I.R approach make us the ideal partner for a pest-free environment.",
+  subtitle = "Choose Urban Pest Solution for comprehensive, technology-driven pest control. Our A.I.R approach makes us the ideal partner for a pest-free environment.",
 }: CTASectionProps) {
   return (
-    <section className="py-20 bg-gradient-to-r from-forest-dark to-forest">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold text-white sm:text-4xl tracking-tight">
-          {title}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">
-          {subtitle}
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            render={<Link href="/contact" />}
-            size="lg"
-            className="bg-amber hover:bg-amber-dark text-charcoal font-semibold px-8"
-          >
-            Contact Us
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            render={<a href={`tel:${siteConfig.phone}`} />}
-            size="lg"
-            variant="outline"
-            className="border-white/30 text-white hover:bg-white/10"
-          >
-            <Phone className="mr-2 h-4 w-4" />
-            Call Now
-          </Button>
+    <section className="py-24 relative overflow-hidden bg-off-white">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-3xl overflow-hidden p-12 lg:p-16 text-center" style={{
+          background: "linear-gradient(135deg, #0a2e24 0%, #155C4A 30%, #1F7A63 60%, #1a5c4d 100%)",
+        }}>
+          {/* Decorative */}
+          <div className="absolute inset-0 dot-pattern opacity-[0.04]" />
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-amber/10 blur-[80px]" />
+          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-forest-light/10 blur-[80px]" />
+
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs text-white/80 mb-6">
+              <Sparkles className="h-3 w-3 text-amber" />
+              Free consultation available
+            </div>
+
+            <h2 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl tracking-tight">
+              {title}
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/60">
+              {subtitle}
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                render={<Link href="/contact" />}
+                size="lg"
+                className="bg-amber hover:bg-amber-dark text-charcoal font-bold px-10 py-6 text-base rounded-xl shadow-lg shadow-amber/25 hover:shadow-amber/40 transition-all hover:-translate-y-0.5"
+              >
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                render={<a href={`tel:${siteConfig.phone}`} />}
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 px-10 py-6 text-base rounded-xl"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Call Now
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

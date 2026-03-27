@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CommercialSector } from "@/types";
 import { ChevronDown, ChevronUp, Search, Wrench, ClipboardCheck } from "lucide-react";
 import { getIcon } from "@/lib/icons";
 import { Building2 } from "lucide-react";
+import Link from "next/link";
 
 interface SectorCardProps {
   sector: CommercialSector;
@@ -17,71 +17,57 @@ export function SectorCard({ sector }: SectorCardProps) {
   const IconComponent = getIcon(sector.icon, Building2);
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 border-border/50">
-      <CardHeader>
-        <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-forest-light">
-          <IconComponent className="h-7 w-7 text-forest" />
-        </div>
-        <CardTitle className="text-xl font-bold text-charcoal">
-          {sector.title}
-        </CardTitle>
-        <p className="text-sm font-medium text-forest">{sector.subtitle}</p>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm text-slate-mid leading-relaxed">
-          {sector.description}
-        </p>
+    <div className="group hover-card-premium rounded-2xl bg-white p-7">
+      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-forest to-forest-dark shadow-lg shadow-forest/15 group-hover:scale-110 transition-transform duration-300">
+        <IconComponent className="h-7 w-7 text-white" />
+      </div>
 
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setExpanded(!expanded)}
-          className="text-forest hover:text-forest-dark p-0 h-auto font-medium"
-        >
-          {expanded ? "Hide" : "View"} A.I.R Approach
-          {expanded ? (
-            <ChevronUp className="ml-1 h-4 w-4" />
-          ) : (
-            <ChevronDown className="ml-1 h-4 w-4" />
-          )}
-        </Button>
+      <h3 className="text-xl font-bold text-charcoal mb-1 group-hover:text-forest transition-colors">
+        {sector.title}
+      </h3>
+      <p className="text-sm font-medium text-forest/80 mb-3">{sector.subtitle}</p>
+      <p className="text-sm text-slate-mid leading-relaxed mb-5">
+        {sector.description}
+      </p>
 
-        {expanded && (
-          <div className="space-y-3 border-t pt-4">
-            <div className="flex gap-3">
-              <Search className="h-5 w-5 text-forest shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-charcoal">Assess</p>
-                <p className="text-xs text-slate-mid">{sector.airBreakdown.assess}</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Wrench className="h-5 w-5 text-amber shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-charcoal">Implement</p>
-                <p className="text-xs text-slate-mid">
-                  {sector.airBreakdown.implement}
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <ClipboardCheck className="h-5 w-5 text-forest shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-charcoal">Review</p>
-                <p className="text-xs text-slate-mid">{sector.airBreakdown.review}</p>
-              </div>
-            </div>
-          </div>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="flex items-center text-sm font-semibold text-forest hover:text-forest-dark transition-colors mb-4"
+      >
+        {expanded ? "Hide" : "View"} A.I.R Approach
+        {expanded ? (
+          <ChevronUp className="ml-1.5 h-4 w-4" />
+        ) : (
+          <ChevronDown className="ml-1.5 h-4 w-4" />
         )}
+      </button>
 
-        <Button
-          variant="outline"
-          size="sm"
-          className="w-full border-forest text-forest hover:bg-forest hover:text-white"
-        >
-          Reach Us
-        </Button>
-      </CardContent>
-    </Card>
+      {expanded && (
+        <div className="space-y-3 border-t border-forest/10 pt-4 mb-5 animate-slide-up" style={{ animationDuration: "0.3s" }}>
+          {[
+            { icon: Search, label: "Assess", text: sector.airBreakdown.assess, color: "text-amber" },
+            { icon: Wrench, label: "Implement", text: sector.airBreakdown.implement, color: "text-forest" },
+            { icon: ClipboardCheck, label: "Review", text: sector.airBreakdown.review, color: "text-forest-dark" },
+          ].map((step) => (
+            <div key={step.label} className="flex gap-3">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-forest-light">
+                <step.icon className={`h-4 w-4 ${step.color}`} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-charcoal uppercase tracking-wider">{step.label}</p>
+                <p className="text-xs text-slate-mid leading-relaxed">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <Button
+        render={<Link href="/contact" />}
+        className="w-full bg-forest hover:bg-forest-dark text-white font-semibold rounded-xl py-5 shadow-lg shadow-forest/15 transition-all"
+      >
+        Reach Us
+      </Button>
+    </div>
   );
 }
