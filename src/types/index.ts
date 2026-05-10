@@ -52,6 +52,43 @@ export interface Pest {
   icon: string;
 }
 
+export type PestCategory =
+  | "flying"
+  | "crawling"
+  | "rodents"
+  | "reptiles"
+  | "vertebrates";
+
+export interface PestFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface PestDetail {
+  slug: string;
+  name: string;
+  category: PestCategory;
+  tagline: string;
+  shortDescription: string;
+  scientificName: string;
+  size: string;
+  appearance: string;
+  wings?: string;
+  feeding: string;
+  behavior: string;
+  habitat: string;
+  signs: string[];
+  healthRisks: string;
+  airTreatment: {
+    assess: string;
+    implement: string;
+    review: string;
+  };
+  faqs: PestFAQ[];
+  icon: string;
+  accentColor: "danger" | "forest" | "amber" | "indigo" | "rose";
+}
+
 export interface Testimonial {
   id: string;
   name: string;
