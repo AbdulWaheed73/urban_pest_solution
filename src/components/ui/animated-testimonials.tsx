@@ -1,0 +1,159 @@
+"use client"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Separator } from "@/components/ui/separator"
+import { Quote, Star } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
+
+export interface Testimonial {
+  id: number
+  name: string
+  role: string
+  company: string
+  content: string
+  rating: number
+  avatar: string
+}
+
+export interface AnimatedTestimonialsProps {
+  title?: string
+  subtitle?: string
+  badgeText?: string
+  testimonials?: Testimonial[]
+  autoRotateInterval?: number
+  trustedCompanies?: string[]
+  trustedCompaniesTitle?: string
+  className?: string
+}
+
+export function AnimatedTestimonials({
+  title = "Loved by the community",
+  subtitle = "Don't just take our word for it. See what developers and companies have to say about our starter template.",
+  badgeText = "Trusted by developers",
+  testimonials = [],
+  autoRotateInterval = 6000,
+  trustedCompanies = [],
+  trustedCompaniesTitle = "Trusted by developers from companies worldwide",
+  className,
+}: AnimatedTestimonialsProps) {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    if (autoRotateInterval <= 0 || testimonials.length <= 1) return
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length)
+    }, autoRotateInterval)
+
+    return () => clearInterval(interval)
+  }, [autoRotateInterval, testimonials.length])
+
+  if (testimonials.length === 0) {
+    return null
+  }
+
+  return (
+    <section id="testimonials" className={`py-24 overflow-hidden bg-muted/30 ${className || ""}`}>
+      <div className="px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-12 w-full md:grid-cols-2 lg:gap-24">
+          {/* Left side: Heading and navigation */}
+          <div className="flex flex-col justify-center">
+            <div className="space-y-6">
+              {badgeText && (
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+                  <Star className="mr-1 h-3.5 w-3.5 fill-primary" />
+                  <span>{badgeText}</span>
+                </div>
+              )}
+
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{title}</h2>
+
+              <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">{subtitle}</p>
+
+              <div className="flex items-center gap-3 pt-4">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      activeIndex === index ? "w-10 bg-primary" : "w-2.5 bg-muted-foreground/30"
+                    }`}
+                    aria-label={`View testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right side: Testimonial cards */}
+          <div className="relative w-full">
+            {/* Decorative elements */}
+            <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-xl bg-primary/5 -z-10" />
+            <div className="absolute -top-6 -right-6 h-24 w-24 rounded-xl bg-primary/5 -z-10" />
+
+            <AnimatePresence mode="wait">
+              {testimonials.map((testimonial, index) =>
+                index === activeIndex ? (
+                  <motion.div
+                    key={testimonial.id}
+                    initial={{ opacity: 0, x: 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -60 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                  >
+                    <div className="bg-card border shadow-lg rounded-xl p-6 sm:p-8 flex flex-col min-h-[380px]">
+                      <div className="mb-6 flex gap-2">
+                        {Array(testimonial.rating)
+                          .fill(0)
+                          .map((_, i) => (
+                            <Star key={i} className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                          ))}
+                      </div>
+
+                      <div className="relative mb-6 flex-1">
+                        <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/20 rotate-180" />
+                        <p className="relative z-10 text-base sm:text-lg font-medium leading-relaxed">
+                          &ldquo;{testimonial.content}&rdquo;
+                        </p>
+                      </div>
+
+                      <Separator className="my-4" />
+
+                      <div className="flex items-center gap-4">
+                        <Avatar className="h-12 w-12 border">
+                          <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <h3 className="font-semibold">{testimonial.name}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.role}, {testimonial.company}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : null
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Logo cloud */}
+        {trustedCompanies.length > 0 && (
+          <div className="mt-24 text-center">
+            <h3 className="text-sm font-medium text-muted-foreground mb-8">{trustedCompaniesTitle}</h3>
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
+              {trustedCompanies.map((company) => (
+                <div key={company} className="text-2xl font-semibold text-muted-foreground/50">
+                  {company}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

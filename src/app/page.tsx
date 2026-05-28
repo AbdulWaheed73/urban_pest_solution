@@ -3,6 +3,7 @@ import { PillarsSection } from "@/components/sections/pillars-section";
 import { MethodologySection } from "@/components/sections/methodology-section";
 import { ServiceCategoriesSection } from "@/components/sections/service-categories-section";
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us-section";
+import { TrustedBySection } from "@/components/sections/trusted-by-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { CTASection } from "@/components/sections/cta-section";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <MethodologySection />
       <ServiceCategoriesSection />
       <WhyChooseUsSection />
+      <TrustedBySection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
