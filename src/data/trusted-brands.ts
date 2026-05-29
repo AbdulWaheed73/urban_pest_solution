@@ -50,6 +50,7 @@ export const OUTER_RING: Brand[] = [
   { name: "Zia Foods", logo: "/brand-logos/zia-foods.png", url: "https://ziafoods.com" },
   { name: "Circle Club", logo: "/brand-logos/circle-club.png", url: "https://thecircleclub.pk" },
   { name: "Etihad Club RYK", logo: "/brand-logos/etihad-club-ryk.png", url: "https://etihadclub.com.pk" },
+  { name: "Gujranwala Food Industries", logo: "/brand-logos/gujranwala-food.png", url: "https://www.ism-me.com/exhibitors/gujranwala-food-industries-pvt-ltd-1" },
 ];
 
 export const ALL_BRANDS: Brand[] = [...INNER_RING, ...OUTER_RING];
