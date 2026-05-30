@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { PestDetail } from "@/types";
-import { PestGlyph } from "@/components/icons/pest-glyphs";
 import { ArrowUpRight } from "lucide-react";
 
-const accentMap: Record<PestDetail["accentColor"], { from: string; to: string; ring: string; text: string; bg: string; }> = {
-  danger:  { from: "from-rose-500",   to: "to-red-600",      ring: "shadow-rose-500/25",   text: "text-rose-600",   bg: "bg-rose-50" },
-  forest:  { from: "from-forest",     to: "to-forest-dark",  ring: "shadow-forest/25",     text: "text-forest",     bg: "bg-forest-light" },
-  amber:   { from: "from-amber",      to: "to-amber-dark",   ring: "shadow-amber/25",      text: "text-amber-dark", bg: "bg-emerald-50" },
-  indigo:  { from: "from-indigo-500", to: "to-indigo-700",   ring: "shadow-indigo-500/25", text: "text-indigo-600", bg: "bg-indigo-50" },
-  rose:    { from: "from-rose-600",   to: "to-pink-700",     ring: "shadow-rose-500/25",   text: "text-rose-700",   bg: "bg-rose-50" },
+const accentMap: Record<PestDetail["accentColor"], { text: string; bg: string }> = {
+  danger: { text: "text-rose-600", bg: "bg-rose-50" },
+  forest: { text: "text-forest", bg: "bg-forest-light" },
+  amber: { text: "text-amber-dark", bg: "bg-emerald-50" },
+  indigo: { text: "text-indigo-600", bg: "bg-indigo-50" },
+  rose: { text: "text-rose-700", bg: "bg-rose-50" },
 };
 
 const categoryLabel: Record<PestDetail["category"], string> = {
@@ -25,35 +24,47 @@ export function PestLibraryCard({ pest }: { pest: PestDetail }) {
   return (
     <Link
       href={`/library/${pest.slug}`}
-      className="group hover-card-premium relative block rounded-2xl bg-white p-6 border border-black/5"
+      className="group hover-card-premium flex flex-col overflow-hidden rounded-2xl bg-white border border-black/5"
     >
-      <div className="flex items-start justify-between mb-5">
-        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${a.from} ${a.to} shadow-lg ${a.ring} group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-          <PestGlyph pest={pest} className="h-7 w-7 text-white" />
-        </div>
-        <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${a.bg} ${a.text}`}>
+      {/* Photo banner */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+        <img
+          src={`/pests/${pest.slug}.jpg`}
+          alt={pest.name}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+        <span
+          className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-sm ${a.bg} ${a.text}`}
+        >
           {categoryLabel[pest.category]}
         </span>
       </div>
 
-      <h3 className="text-xl font-extrabold text-charcoal mb-1.5 group-hover:text-forest transition-colors">
-        {pest.name}
-      </h3>
-      <p className={`text-xs font-semibold italic ${a.text} mb-3`}>
-        {pest.tagline}
-      </p>
-      <p className="text-sm text-slate-mid leading-relaxed line-clamp-3 mb-5">
-        {pest.shortDescription}
-      </p>
+      {/* Body */}
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-xl font-extrabold text-charcoal mb-1.5 transition-colors group-hover:text-forest">
+          {pest.name}
+        </h3>
+        <p className={`text-xs font-semibold italic ${a.text} mb-3`}>
+          {pest.tagline}
+        </p>
+        <p className="mb-5 text-sm leading-relaxed text-slate-mid line-clamp-2">
+          {pest.shortDescription}
+        </p>
 
-      <div className="flex items-center justify-between pt-4 border-t border-black/5">
-        <span className="text-xs font-medium text-slate-mid italic">
-          {pest.scientificName}
-        </span>
-        <span className={`inline-flex items-center gap-1 text-xs font-bold ${a.text} group-hover:gap-2 transition-all`}>
-          Read More
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </span>
+        <div className="mt-auto flex items-center justify-between border-t border-black/5 pt-4">
+          <span className="text-xs font-medium italic text-slate-mid">
+            {pest.scientificName}
+          </span>
+          <span
+            className={`inline-flex items-center gap-1 text-xs font-bold ${a.text} transition-all group-hover:gap-2`}
+          >
+            Read More
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
+        </div>
       </div>
     </Link>
   );

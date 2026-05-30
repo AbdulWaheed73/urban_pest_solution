@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PestDetail } from "@/types";
-import { PestGlyph } from "@/components/icons/pest-glyphs";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/site-config";
@@ -77,15 +76,17 @@ export function PestDetailHero({ pest }: { pest: PestDetail }) {
             </div>
           </div>
 
-          {/* Pest icon visual */}
+          {/* Pest photo visual */}
           <div className="hidden lg:flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-amber/30 to-forest-light/20 blur-3xl rounded-full" />
-              <div className="relative h-64 w-64 rounded-3xl glass flex items-center justify-center group hover:scale-105 transition-transform duration-700">
-                <PestGlyph pest={pest} className="h-32 w-32 text-white/90 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full bg-amber text-charcoal text-xs font-bold shadow-lg">
-                  IMG PLACEHOLDER
-                </div>
+              <div className="group relative h-72 w-72 overflow-hidden rounded-3xl border border-white/20 shadow-2xl transition-transform duration-700 hover:scale-105">
+                <img
+                  src={`/pests/${pest.slug}.jpg`}
+                  alt={pest.name}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
             </div>
           </div>
