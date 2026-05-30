@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PestDetail } from "@/types";
-import { getIcon } from "@/lib/icons";
-import { Bug, ArrowUpRight } from "lucide-react";
+import { PestGlyph } from "@/components/icons/pest-glyphs";
+import { ArrowUpRight } from "lucide-react";
 
 const accentMap: Record<PestDetail["accentColor"], { from: string; to: string; ring: string; text: string; bg: string; }> = {
   danger:  { from: "from-rose-500",   to: "to-red-600",      ring: "shadow-rose-500/25",   text: "text-rose-600",   bg: "bg-rose-50" },
@@ -20,7 +20,6 @@ const categoryLabel: Record<PestDetail["category"], string> = {
 };
 
 export function PestLibraryCard({ pest }: { pest: PestDetail }) {
-  const Icon = getIcon(pest.icon, Bug);
   const a = accentMap[pest.accentColor];
 
   return (
@@ -30,7 +29,7 @@ export function PestLibraryCard({ pest }: { pest: PestDetail }) {
     >
       <div className="flex items-start justify-between mb-5">
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${a.from} ${a.to} shadow-lg ${a.ring} group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-          <Icon className="h-7 w-7 text-white" />
+          <PestGlyph pest={pest} className="h-7 w-7 text-white" />
         </div>
         <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${a.bg} ${a.text}`}>
           {categoryLabel[pest.category]}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PestDetail } from "@/types";
-import { getIcon } from "@/lib/icons";
-import { Bug, ArrowRight, Phone } from "lucide-react";
+import { PestGlyph } from "@/components/icons/pest-glyphs";
+import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/site-config";
 
@@ -14,8 +14,6 @@ const categoryLabel: Record<PestDetail["category"], string> = {
 };
 
 export function PestDetailHero({ pest }: { pest: PestDetail }) {
-  const Icon = getIcon(pest.icon, Bug);
-
   return (
     <section
       className="relative overflow-hidden py-20 lg:py-28"
@@ -84,7 +82,7 @@ export function PestDetailHero({ pest }: { pest: PestDetail }) {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-amber/30 to-forest-light/20 blur-3xl rounded-full" />
               <div className="relative h-64 w-64 rounded-3xl glass flex items-center justify-center group hover:scale-105 transition-transform duration-700">
-                <Icon className="h-32 w-32 text-white/90 group-hover:scale-110 transition-transform duration-500" />
+                <PestGlyph pest={pest} className="h-32 w-32 text-white/90 group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full bg-amber text-charcoal text-xs font-bold shadow-lg">
                   IMG PLACEHOLDER
                 </div>
