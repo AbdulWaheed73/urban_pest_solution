@@ -224,28 +224,17 @@
 .hover-card-premium {
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hover-card-premium::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2E3692, #2D8B4E);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hover-card-premium:hover::before {
-  transform: scaleX(1);
+  border-color: rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-card-premium:hover {
-  transform: translateY(-6px);
+  transform: translateY(-2px);
+  border-color: rgba(46, 54, 146, 0.22);
   box-shadow:
-    0 20px 40px -12px rgba(46, 54, 146, 0.15),
-    0 8px 16px -8px rgba(0, 0, 0, 0.1);
+    0 12px 28px -16px rgba(46, 54, 146, 0.22),
+    0 4px 10px -6px rgba(46, 54, 146, 0.10);
 }
 
 /* ===== DOT PATTERN ===== */
