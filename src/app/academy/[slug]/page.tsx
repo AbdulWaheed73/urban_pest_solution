@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { trainingSessions } from "@/data/school";
-import { TrainingDetailHero } from "@/components/school/training-detail-hero";
-import { TrainingCard } from "@/components/school/training-card";
+import { trainingSessions } from "@/data/academy";
+import { TrainingDetailHero } from "@/components/academy/training-detail-hero";
+import { TrainingCard } from "@/components/academy/training-card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
 import {
@@ -28,7 +28,7 @@ export async function generateMetadata(
   const session = trainingSessions.find((s) => s.slug === slug);
   if (!session) return { title: "Session Not Found" };
   return {
-    title: `${session.title} — School of IPM | Urban Pest Solution`,
+    title: `${session.title} — Urban Pest Academy | Urban Pest Solution`,
     description: session.summary,
     openGraph: { title: session.title, description: session.summary },
   };
@@ -62,11 +62,11 @@ export default async function TrainingDetailPage({
       <div className="border-b border-black/5 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
           <Link
-            href="/school"
+            href="/academy"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-mid hover:text-forest transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
-            Back to School of IPM
+            Back to Urban Pest Academy
           </Link>
         </div>
       </div>
@@ -203,7 +203,7 @@ export default async function TrainingDetailPage({
 
       <CTASection
         title="Bring This Training to Your Team"
-        subtitle="Book a session at the School of IPM or have our trainers come to your site. Get in touch to plan a programme that fits your facility."
+        subtitle="Book a session at the Urban Pest Academy or have our trainers come to your site. Get in touch to plan a programme that fits your facility."
       />
     </>
   );

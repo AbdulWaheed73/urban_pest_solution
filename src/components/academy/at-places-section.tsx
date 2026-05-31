@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/shared/section-heading";
-import { atPlaces } from "@/data/school";
+import { atPlaces } from "@/data/academy";
 import { MapPin } from "lucide-react";
 
 export function AtPlacesSection() {

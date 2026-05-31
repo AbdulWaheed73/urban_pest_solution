@@ -3,14 +3,14 @@
 import { useState, useMemo } from "react";
 import { HeroSection } from "@/components/sections/hero-section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { SchoolPillars } from "@/components/school/school-pillars";
-import { TrainingCard } from "@/components/school/training-card";
-import { AtPlacesSection } from "@/components/school/at-places-section";
+import { AcademyPillars } from "@/components/academy/academy-pillars";
+import { TrainingCard } from "@/components/academy/training-card";
+import { AtPlacesSection } from "@/components/academy/at-places-section";
 import { CTASection } from "@/components/sections/cta-section";
-import { trainingSessions, trainingCategories } from "@/data/school";
+import { trainingSessions, trainingCategories } from "@/data/academy";
 import { cn } from "@/lib/utils";
 
-export default function SchoolPage() {
+export default function AcademyPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const filtered = useMemo(
@@ -24,12 +24,12 @@ export default function SchoolPage() {
   return (
     <>
       <HeroSection
-        title="School of IPM"
-        subtitle="Innovate, Protect, Sustain — empowering you to build a greener future through advanced pest-management education."
+        title="Urban Pest Academy"
+        subtitle="Learn it. Prevent it. Protect what matters. Practical pest-management education that turns knowledge into a pest-free environment."
         compact
       />
 
-      <SchoolPillars />
+      <AcademyPillars />
 
       {/* Training sessions */}
       <section className="py-24 relative bg-off-white">
@@ -37,8 +37,8 @@ export default function SchoolPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Training Sessions"
-            title="Activity-Based IPM Trainings"
-            subtitle="The first School of IPM dedicated to urban pest-management training in Pakistan. Explore our hands-on sessions — tap any session to see what it covers."
+            title="Activity-Based Pest Trainings"
+            subtitle="Hands-on IPM trainings and workshops delivered across Pakistan. Explore our sessions — tap any one to see what it covers."
           />
 
           {/* Category filter */}
@@ -71,8 +71,8 @@ export default function SchoolPage() {
       <AtPlacesSection />
 
       <CTASection
-        title="Join Us in Collaboration"
-        subtitle="Together we can empower professionals, educate the public, and set new standards for excellence in pest management. Partner with the School of IPM."
+        title="Train With Urban Pest Academy"
+        subtitle="Equip your team with the skills to keep pests out for good. Book a session at our academy or have our trainers come to your site."
       />
     </>
   );

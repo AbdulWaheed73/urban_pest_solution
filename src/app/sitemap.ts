@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { pestLibrary } from "@/data/pest-library";
-import { trainingSessions } from "@/data/school";
+import { trainingSessions } from "@/data/academy";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://urbanpestsolution.com";
@@ -18,9 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    { url: `${baseUrl}/school`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/academy`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     ...trainingSessions.map((s) => ({
-      url: `${baseUrl}/school/${s.slug}`,
+      url: `${baseUrl}/academy/${s.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.6,

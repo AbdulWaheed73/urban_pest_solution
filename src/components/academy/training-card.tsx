@@ -24,7 +24,7 @@ export function TrainingCard({ session }: { session: TrainingSession }) {
 
   return (
     <Link
-      href={`/school/${session.slug}`}
+      href={`/academy/${session.slug}`}
       className="group hover-card-premium flex flex-col overflow-hidden rounded-2xl bg-white border border-black/5"
     >
       {/* Photo banner */}

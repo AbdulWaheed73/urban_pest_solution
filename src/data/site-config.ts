@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
     { label: "Commercial", href: "/commercial" },
     { label: "Residential", href: "/residential" },
     { label: "Pest Library", href: "/library" },
-    { label: "School of IPM", href: "/school" },
+    { label: "Academy", href: "/academy" },
     { label: "Shop", href: "/shop" },
     { label: "Contact", href: "/contact" },
   ],

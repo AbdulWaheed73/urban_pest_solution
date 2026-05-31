@@ -37,7 +37,7 @@ export function TrainingDetailHero({ session }: { session: TrainingSession }) {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <Link
-              href="/school"
+              href="/academy"
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold tracking-wider uppercase text-amber mb-6 hover:bg-white/15 transition-colors"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />

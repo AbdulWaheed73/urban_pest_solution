@@ -24,7 +24,7 @@ export const trainingSessions: TrainingSession[] = [
       "A hands-on introduction to Integrated Pest Management — why prevention beats reaction, and how targeted, low-toxicity methods outperform traditional spraying.",
     overview:
       "Our flagship workshop walks teams through the core philosophy of Integrated Pest Management from the ground up. Participants learn how IPM requires greater knowledge than conventional programs, why its techniques are less toxic and more targeted, and how a coordinated team effort delivers more effective, longer-lasting, and lower-risk results. Through live discussion and worked examples, attendees leave able to recognise conducive conditions and act on them before an infestation ever takes hold.",
-    location: "School of IPM, Lahore",
+    location: "Urban Pest Academy, Lahore",
     duration: "Half day (4 hours)",
     format: "Classroom + interactive discussion",
     image: "/trainings/ipm-fundamentals.jpeg",
@@ -53,7 +53,7 @@ export const trainingSessions: TrainingSession[] = [
       "A deep dive into the working parts of an IPM programme: monitoring, identification, thresholds, intervention, and review.",
     overview:
       "This session breaks IPM down into its working components and shows how each one feeds the next. Technicians study the IPM cycle in detail — accurate monitoring, correct species identification, action thresholds, the hierarchy of control methods, and structured review. Using real site data, the group practises deciding when and how to intervene so that every treatment is justified, measured, and documented.",
-    location: "School of IPM, Lahore",
+    location: "Urban Pest Academy, Lahore",
     duration: "Full day (6 hours)",
     format: "Classroom + case studies",
     image: "/trainings/components-of-ipm.jpeg",
@@ -111,7 +111,7 @@ export const trainingSessions: TrainingSession[] = [
       "An activity-based course for restaurant and QSR teams covering the pest pressure points unique to food service.",
     overview:
       "Restaurants face pest pressure from every direction — deliveries, drains, storage, waste handling, and dining areas. This activity-based course dissects the anatomy of a restaurant zone by zone, showing teams exactly where pests enter, harbour, and feed, and what daily practices shut those opportunities down. The engaging, hands-on format keeps front-line staff involved and turns pest awareness into everyday habit.",
-    location: "School of IPM, Lahore",
+    location: "Urban Pest Academy, Lahore",
     duration: "Half day (3 hours)",
     format: "Activity-based workshop",
     image: "/trainings/restaurant-ipm.jpeg",
@@ -140,7 +140,7 @@ export const trainingSessions: TrainingSession[] = [
       "A focused session on mosquito biology, breeding-site reduction, and the community action that keeps dengue at bay.",
     overview:
       "Dengue is a public-health emergency that pest management is uniquely placed to fight. This awareness session covers the biology and behaviour of the Aedes mosquito, how to find and eliminate breeding sites around homes and workplaces, and the seasonal surveillance that gets ahead of an outbreak. Practical and community-focused, it equips groups to take coordinated action where it matters most.",
-    location: "School of IPM / on-site",
+    location: "Urban Pest Academy / on-site",
     duration: "2 hours",
     format: "Awareness briefing",
     image: "/trainings/dengue-awareness.jpeg",
@@ -169,7 +169,7 @@ export const trainingSessions: TrainingSession[] = [
       "An academic collaboration introducing students to the science, practice, and career paths of integrated pest management.",
     overview:
       "Delivered in partnership with leading universities, this course bridges classroom theory and field practice. Students explore the science behind IPM, the technology now reshaping the industry, and the real-world career paths open to them. Internships and research projects extend the learning beyond the lecture, helping build a stronger, more resilient pest-management ecosystem for Pakistan.",
-    location: "Partner university / School of IPM",
+    location: "Partner university / Urban Pest Academy",
     duration: "Multi-session course",
     format: "Lecture + lab + field visit",
     image: "/trainings/university-collaboration.jpeg",
@@ -195,10 +195,10 @@ export const trainingSessions: TrainingSession[] = [
     host: "Global & National Partners",
     tagline: "World-class standards, shared locally",
     summary:
-      "Strategic collaborations that bring global best practice and research into the School of IPM's curriculum.",
+      "Strategic collaborations that bring global best practice and research into the Urban Pest Academy's curriculum.",
     overview:
-      "The School of IPM maintains top-tier learning quality through strategic global collaborations and strong partnerships with leading national institutes. These knowledge exchanges — including joint sessions and shared research with international partners — keep our curriculum aligned with the latest science and technology in pest management, so the training delivered locally reflects standards recognised worldwide.",
-    location: "School of IPM, Lahore",
+      "The Urban Pest Academy maintains top-tier learning quality through strategic global collaborations and strong partnerships with leading national institutes. These knowledge exchanges — including joint sessions and shared research with international partners — keep our curriculum aligned with the latest science and technology in pest management, so the training delivered locally reflects standards recognised worldwide.",
+    location: "Urban Pest Academy, Lahore",
     duration: "Varies by programme",
     format: "Partner workshops & exchange",
     image: "/trainings/international-exchange.jpeg",
