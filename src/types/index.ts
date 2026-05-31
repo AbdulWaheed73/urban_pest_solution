@@ -89,6 +89,41 @@ export interface PestDetail {
   accentColor: "danger" | "forest" | "amber" | "indigo" | "rose";
 }
 
+export type TrainingCategory =
+  | "fundamentals"
+  | "food-safety"
+  | "restaurants"
+  | "public-health"
+  | "academic"
+  | "collaboration";
+
+export interface TrainingSession {
+  slug: string;
+  title: string;
+  category: TrainingCategory;
+  host: string;
+  tagline: string;
+  summary: string;
+  overview: string;
+  location: string;
+  duration: string;
+  format: string;
+  image: string;
+  gallery?: string[];
+  topics: string[];
+  outcomes: string[];
+  accentColor: "danger" | "forest" | "amber" | "indigo" | "rose";
+}
+
+export interface AtPlace {
+  id: string;
+  title: string;
+  client: string;
+  location: string;
+  image: string;
+  description: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;
