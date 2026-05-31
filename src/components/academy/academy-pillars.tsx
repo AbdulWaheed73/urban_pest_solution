@@ -128,7 +128,7 @@ export function AcademyPillars() {
             const c = accents[pillar.accent];
             return (
               <div key={pillar.title} className="group relative h-full">
-                <div className="relative h-full overflow-hidden rounded-3xl bg-white p-7 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-xl">
+                <div className="relative h-full overflow-hidden rounded-3xl bg-white p-7 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 group-hover:border-forest/15 group-hover:shadow-[0_12px_28px_-16px_rgba(46,54,146,0.22)]">
                   {/* Top accent bar */}
                   <span
                     className="absolute top-0 left-0 h-1 w-12 rounded-full transition-all duration-500 group-hover:w-full"
@@ -190,7 +190,7 @@ export function AcademyPillars() {
               return (
                 <div
                   key={item.title}
-                  className="group relative overflow-hidden rounded-3xl border border-black/[0.06] bg-white p-7 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                  className="group relative overflow-hidden rounded-3xl border border-black/[0.06] bg-white p-7 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 hover:border-forest/15 hover:shadow-[0_12px_28px_-16px_rgba(46,54,146,0.22)]"
                 >
                   {/* hover tint wash */}
                   <span
@@ -203,7 +203,7 @@ export function AcademyPillars() {
                       style={{ background: c.glow }}
                     />
                     <div
-                      className="relative flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
+                      className="relative flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-105"
                       style={{ background: c.grad, boxShadow: `0 10px 24px -8px ${c.glow}` }}
                     >
                       <span className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/25 to-transparent" />
