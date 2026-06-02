@@ -71,7 +71,9 @@ export default function ContactPage() {
                     <div>
                       <p className="font-medium text-charcoal text-sm">Email</p>
                       <a
-                        href={`mailto:${siteConfig.email}`}
+                        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-sm text-forest hover:text-forest-dark"
                       >
                         {siteConfig.email}

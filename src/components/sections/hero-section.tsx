@@ -86,7 +86,7 @@ export function HeroSection({
             <Button
               render={<Link href={ctaHref} />}
               size="lg"
-              className="bg-amber hover:bg-amber-dark text-charcoal font-bold px-10 py-6 text-base rounded-xl shadow-lg shadow-amber/25 hover:shadow-amber/40 transition-all duration-300 hover:-translate-y-0.5"
+              className="bg-amber hover:bg-amber-dark [a]:hover:bg-amber-dark text-white font-bold px-10 py-6 text-base rounded-xl shadow-lg shadow-amber/25 hover:shadow-amber/40 transition-all duration-300 hover:-translate-y-0.5"
             >
               {ctaText}
               <ArrowRight className="ml-2 h-5 w-5" />

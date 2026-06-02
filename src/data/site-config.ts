@@ -4,7 +4,7 @@ export const siteConfig: SiteConfig = {
   companyName: "Urban Pest Solution",
   tagline: "An Environmental Perspective",
   phone: "+92 321 882 2080",
-  email: "info@urbanpestsolution.com",
+  email: "info@mail.urbanpestsolution.com",
   address: "106-A, Str. 15, State Life Housing Society, Lahore, Pakistan",
   businessHours: [
     { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM" },

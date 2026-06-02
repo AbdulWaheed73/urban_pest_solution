@@ -1,28 +1,54 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+const EMPTY_FORM: ContactFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+};
+
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+  const [formData, setFormData] = useState<ContactFormData>(EMPTY_FORM);
+
+  const mutation = useMutation({
+    mutationFn: async (data: ContactFormData) => {
+      const res = await axios.post("/api/contact", data);
+      return res.data;
+    },
+    onSuccess: () => {
+      setFormData(EMPTY_FORM);
+    },
   });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    mutation.mutate(formData);
   };
+
+  const submitted = mutation.isSuccess;
+  const sending = mutation.isPending;
+  const errorMessage = mutation.isError
+    ? (axios.isAxiosError(mutation.error) &&
+        (mutation.error.response?.data as { error?: string } | undefined)?.error) ||
+      "Failed to send message. Please try again."
+    : null;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
@@ -99,11 +125,22 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="w-full bg-forest hover:bg-forest-dark text-white"
+        disabled={sending}
+        className="w-full bg-forest hover:bg-forest-dark text-white disabled:opacity-70"
       >
         <Send className="mr-2 h-4 w-4" />
-        {submitted ? "Message Sent!" : "Send Message"}
+        {sending ? "Sending..." : submitted ? "Message Sent!" : "Send Message"}
       </Button>
+      {submitted && (
+        <p className="text-sm font-medium text-forest" role="status">
+          Thanks for reaching out! We&apos;ll get back to you shortly.
+        </p>
+      )}
+      {errorMessage && (
+        <p className="text-sm font-medium text-red-600" role="alert">
+          {errorMessage}
+        </p>
+      )}
     </form>
   );
 }
