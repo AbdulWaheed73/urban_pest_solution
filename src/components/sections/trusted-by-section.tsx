@@ -132,11 +132,10 @@ export function TrustedBySection() {
         />
 
         {/* Desktop: Orbital rings */}
-        <div className="relative mx-auto hidden aspect-square w-full max-w-[760px] md:block">
-          {/* Outer dotted ring */}
+        <div className="relative mx-auto hidden aspect-square w-full max-w-[820px] md:block">
+          {/* Dotted rings */}
           <DottedCircle sizePercent={100} />
-          {/* Inner dotted ring */}
-          <DottedCircle sizePercent={58} />
+          <DottedCircle sizePercent={56} />
 
           {/* Outer ring of logos — rotates counter-clockwise (75s) */}
           <OrbitRing
@@ -148,26 +147,26 @@ export function TrustedBySection() {
           />
 
           {/* Inner ring of logos — rotates clockwise (60s) */}
-          <div className="absolute inset-[21%]">
+          <div className="absolute inset-[22%]">
             <OrbitRing
               brands={INNER_RING}
               radiusPercent={50}
               ringAnimationClass="animate-spin-slow"
               counterRotateClass="animate-spin-slow-counter"
-              pillSize="lg"
+              pillSize="md"
             />
           </div>
 
           {/* Center card */}
-          <div className="absolute left-1/2 top-1/2 z-10 flex aspect-square w-[34%] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-white text-center shadow-[0_20px_60px_-15px_rgba(46,54,146,0.35)] ring-1 ring-forest/10">
-            <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-forest-light px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-forest">
-              <ShieldCheck className="h-3 w-3" />
+          <div className="absolute left-1/2 top-1/2 z-10 flex aspect-square w-[30%] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-white text-center shadow-[0_20px_60px_-15px_rgba(46,54,146,0.35)] ring-1 ring-forest/10">
+            <span className="mb-1.5 inline-flex items-center gap-1 rounded-full bg-forest-light px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-forest">
+              <ShieldCheck className="h-2.5 w-2.5" />
               {ALL_BRANDS.length}+ Clients
             </span>
-            <p className="px-4 text-sm font-bold leading-tight text-charcoal">
-              Pakistan&apos;s trusted pest management partner
+            <p className="px-3 text-xs font-bold leading-tight text-charcoal lg:text-sm">
+              Trusted pest management partner
             </p>
-            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-amber-dark">
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-amber-dark lg:text-[11px]">
               Urban Pest Solution
             </p>
           </div>
