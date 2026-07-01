@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://urbanpestsolution.com"),
   title: {
     default: "Urban Pest Solution — Professional Pest Control Services",
     template: "%s | Urban Pest Solution",
@@ -29,10 +30,33 @@ export const metadata: Metadata = {
     "commercial pest control",
     "residential pest control",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Urban Pest Solution",
     description: "Professional Pest Control Services — Where Science Meets Safety",
     type: "website",
+    siteName: "Urban Pest Solution",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Urban Pest Solution",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Urban Pest Solution",
+    description: "Professional Pest Control Services — Where Science Meets Safety",
+    images: ["/images/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

@@ -30,7 +30,28 @@ export async function generateMetadata(
   return {
     title: `${session.title} — Urban Pest Academy | Urban Pest Solution`,
     description: session.summary,
-    openGraph: { title: session.title, description: session.summary },
+    keywords: [
+      session.title,
+      session.category,
+      "IPM training",
+      "pest management course",
+      "Urban Pest Academy",
+      "pest control training Pakistan",
+    ],
+    alternates: { canonical: `/academy/${session.slug}` },
+    openGraph: {
+      title: session.title,
+      description: session.summary,
+      url: `/academy/${session.slug}`,
+      type: "article",
+      images: [{ url: session.image, alt: session.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: session.title,
+      description: session.summary,
+      images: [session.image],
+    },
   };
 }
 

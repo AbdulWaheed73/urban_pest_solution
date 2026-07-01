@@ -20,12 +20,31 @@ export async function generateMetadata(
   const { slug } = await params;
   const pest = pestLibrary.find((p) => p.slug === slug);
   if (!pest) return { title: "Pest Not Found" };
+  const image = `/pests/${pest.slug}.jpg`;
   return {
     title: `${pest.name} — Urban Pest Solution Library`,
     description: pest.shortDescription,
+    keywords: [
+      pest.name,
+      pest.scientificName,
+      `${pest.name} control`,
+      `${pest.name} treatment`,
+      "pest identification",
+      "pest control Pakistan",
+    ],
+    alternates: { canonical: `/library/${pest.slug}` },
     openGraph: {
       title: `${pest.name} (${pest.scientificName})`,
       description: pest.shortDescription,
+      url: `/library/${pest.slug}`,
+      type: "article",
+      images: [{ url: image, alt: pest.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${pest.name} (${pest.scientificName})`,
+      description: pest.shortDescription,
+      images: [image],
     },
   };
 }

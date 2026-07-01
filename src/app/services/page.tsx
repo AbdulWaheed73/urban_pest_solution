@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Comprehensive management system consulting, training and auditing services across 21+ specialized domains including ISO standards, food safety, and sustainability.",
+  keywords: [
+    "pest control services",
+    "IPM consulting",
+    "ISO standards auditing",
+    "food safety training",
+    "pest management Pakistan",
+  ],
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Our Consulting Services | Urban Pest Solution",
+    description:
+      "Management system consulting, training and auditing services against best practices and international standards.",
+    url: "/services",
+    type: "website",
+  },
 };
 
 export default function ServicesPage() {

@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   title: "Residential Pest Control",
   description:
     "Professional residential pest control services across Pakistan. Protecting homes, apartments, and families from termites, rodents, cockroaches, and more.",
+  keywords: [
+    "residential pest control",
+    "home pest control Pakistan",
+    "termite treatment",
+    "rodent control home",
+    "cockroach control",
+  ],
+  alternates: { canonical: "/residential" },
+  openGraph: {
+    title: "Residential Pest Control | Urban Pest Solution",
+    description:
+      "Professional residential pest control across Pakistan — protecting homes and families from termites, rodents, cockroaches and more.",
+    url: "/residential",
+    type: "website",
+  },
 };
 
 export default function ResidentialPage() {

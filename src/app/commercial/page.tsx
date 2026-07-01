@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   title: "Commercial Pest Control",
   description:
     "Tailored commercial pest management for food & beverage, retail, hospitality, healthcare, education, and more. Trusted by 30+ multinational clients.",
+  keywords: [
+    "commercial pest control",
+    "food safety pest management",
+    "hospitality pest control",
+    "healthcare pest control",
+    "retail pest control Pakistan",
+  ],
+  alternates: { canonical: "/commercial" },
+  openGraph: {
+    title: "Commercial Pest Control | Urban Pest Solution",
+    description:
+      "Tailored commercial pest management across food & beverage, retail, hospitality, healthcare and education. Trusted by 30+ multinational clients.",
+    url: "/commercial",
+    type: "website",
+  },
 };
 
 export default function CommercialPage() {

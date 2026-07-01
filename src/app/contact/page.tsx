@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Urban Pest Solution. Request a free consultation, schedule a pest inspection, or ask us anything about our services.",
+  keywords: [
+    "contact pest control",
+    "free pest inspection Lahore",
+    "pest control consultation Pakistan",
+  ],
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Us | Urban Pest Solution",
+    description:
+      "Request a free consultation, schedule a pest inspection, or ask us anything about our services.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
