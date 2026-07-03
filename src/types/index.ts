@@ -8,13 +8,10 @@ export interface Service {
 }
 
 export type ServiceCategory =
-  | "core-management"
-  | "food-safety"
-  | "it-security"
-  | "laboratory"
-  | "industry-specific"
-  | "continuous-improvement"
-  | "sustainability";
+  | "general"
+  | "specialized"
+  | "commercial"
+  | "public-health";
 
 export interface CommercialSector {
   id: string;

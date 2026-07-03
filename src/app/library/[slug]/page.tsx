@@ -8,6 +8,8 @@ import { PestFactsSection } from "@/components/library/pest-facts-section";
 import { PestFaqSection } from "@/components/library/pest-faq-section";
 import { RelatedPests } from "@/components/library/related-pests";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/seo/json-ld";
+import { pestArticleSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { ChevronLeft } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -22,7 +24,7 @@ export async function generateMetadata(
   if (!pest) return { title: "Pest Not Found" };
   const image = `/pests/${pest.slug}.jpg`;
   return {
-    title: `${pest.name} — Urban Pest Solution Library`,
+    title: `${pest.name} — Pest Library`,
     description: pest.shortDescription,
     keywords: [
       pest.name,
@@ -64,6 +66,17 @@ export default async function PestDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          pestArticleSchema(pest),
+          faqSchema(pest.faqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Pest Library", path: "/library" },
+            { name: pest.name, path: `/library/${pest.slug}` },
+          ]),
+        ]}
+      />
       <PestDetailHero pest={pest} />
 
       {/* Breadcrumb / back nav */}

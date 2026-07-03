@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 import { getIcon } from "@/lib/icons";
 import { Globe } from "lucide-react";
@@ -18,8 +17,8 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-5">
             <Link href="/" className="flex items-center gap-2.5">
-              <Image
-                src="/images/logo.png"
+              <img
+                src="/images/logo-sm.png"
                 alt="Urban Pest Solution"
                 width={44}
                 height={44}
@@ -29,12 +28,12 @@ export function Footer() {
                 <span className="text-lg font-extrabold leading-tight text-white">
                   Urban <span className="text-forest">Pest</span>
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 -mt-0.5">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60 -mt-0.5">
                   Solution
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-white/40 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
               Professional pest management services backed by science,
               technology, and years of industry experience.
             </p>
@@ -57,7 +56,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/25">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -65,7 +64,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group flex items-center text-sm text-white/50 hover:text-forest transition-colors"
+                    className="group flex items-center text-sm text-white/70 hover:text-forest transition-colors"
                   >
                     {link.label}
                     <ArrowUpRight className="ml-1 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -77,7 +76,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/25">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -87,10 +86,10 @@ export function Footer() {
                 "Fumigation",
                 "Commercial IPM",
                 "Residential IPM",
-                "Consulting",
+                "Rodent Control",
               ].map((service) => (
                 <li key={service}>
-                  <span className="text-sm text-white/50">{service}</span>
+                  <span className="text-sm text-white/70">{service}</span>
                 </li>
               ))}
             </ul>
@@ -98,7 +97,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/25">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Contact Us
             </h3>
             <ul className="space-y-4">
@@ -106,7 +105,7 @@ export function Footer() {
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5">
                   <MapPin className="h-4 w-4 text-forest" />
                 </div>
-                <span className="text-sm text-white/50 leading-relaxed">
+                <span className="text-sm text-white/70 leading-relaxed">
                   {siteConfig.address}
                 </span>
               </li>
@@ -116,7 +115,7 @@ export function Footer() {
                 </div>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="text-sm text-white/50 hover:text-forest transition-colors"
+                  className="text-sm text-white/70 hover:text-forest transition-colors"
                 >
                   {siteConfig.phone}
                 </a>
@@ -127,7 +126,7 @@ export function Footer() {
                 </div>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-sm text-white/50 hover:text-forest transition-colors"
+                  className="text-sm text-white/70 hover:text-forest transition-colors"
                 >
                   {siteConfig.email}
                 </a>
@@ -137,10 +136,10 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/25">
+          <p className="text-sm text-white/70">
             &copy; {new Date().getFullYear()} {siteConfig.companyName}. All rights reserved.
           </p>
-          <p className="text-xs text-white/15 italic">
+          <p className="text-xs text-white/55 italic">
             {siteConfig.tagline}
           </p>
         </div>

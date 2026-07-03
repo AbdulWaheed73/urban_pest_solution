@@ -8,6 +8,8 @@ import { TrainingCard } from "@/components/academy/training-card";
 import { AtPlacesSection } from "@/components/academy/at-places-section";
 import { CTASection } from "@/components/sections/cta-section";
 import { trainingSessions, trainingCategories } from "@/data/academy";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export default function AcademyPage() {
@@ -23,6 +25,12 @@ export default function AcademyPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Urban Pest Academy", path: "/academy" },
+        ])}
+      />
       <HeroSection
         title="Urban Pest Academy"
         subtitle="Learn it. Prevent it. Protect what matters. Practical pest-management education that turns knowledge into a pest-free environment."

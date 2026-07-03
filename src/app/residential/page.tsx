@@ -11,6 +11,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { residentialSegments } from "@/data/residential-segments";
 import { Shield, Calendar } from "lucide-react";
 import { getIcon } from "@/lib/icons";
+import { OG_IMAGE } from "@/lib/seo";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
       "Professional residential pest control across Pakistan — protecting homes and families from termites, rodents, cockroaches and more.",
     url: "/residential",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

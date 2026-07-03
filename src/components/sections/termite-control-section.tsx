@@ -25,9 +25,9 @@ export function TermiteControlSection() {
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-charcoal mb-2 group-hover:text-forest transition-colors">
+                    <h3 className="text-lg font-bold text-charcoal mb-2 group-hover:text-forest transition-colors">
                       {service.title}
-                    </h4>
+                    </h3>
                     <p className="text-sm text-slate-mid leading-relaxed">
                       {service.description}
                     </p>

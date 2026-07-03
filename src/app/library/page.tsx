@@ -7,6 +7,8 @@ import { PestLibraryCard } from "@/components/library/pest-library-card";
 import { LibraryFilter } from "@/components/library/library-filter";
 import { pestLibrary } from "@/data/pest-library";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema } from "@/lib/seo";
 import { SearchX } from "lucide-react";
 
 export default function LibraryPage() {
@@ -29,6 +31,12 @@ export default function LibraryPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Pest Library", path: "/library" },
+        ])}
+      />
       <HeroSection
         title="Tap the Pest Bugging You"
         subtitle="A complete guide to pests you may encounter in your home, office, or facility — biology, behavior, and our A.I.R. treatment approach for each."

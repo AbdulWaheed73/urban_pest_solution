@@ -32,9 +32,9 @@ export function SeasonalPestSection() {
                 <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${colors.gradient} shadow-lg ${colors.shadow} group-hover:scale-110 transition-transform duration-300`}>
                   <IconComponent className="h-8 w-8 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-charcoal mb-3">
+                <h3 className="text-lg font-bold text-charcoal mb-3">
                   {season.season}
-                </h4>
+                </h3>
                 <div className="flex flex-wrap gap-1.5 justify-center mb-4">
                   {season.pests.map((pest) => (
                     <Badge

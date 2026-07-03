@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Urban Pest Academy",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
       "Training sessions and workshops on Integrated Pest Management — fundamentals, food safety, public health and more.",
     url: "/academy",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

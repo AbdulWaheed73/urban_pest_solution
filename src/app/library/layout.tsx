@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Pest Library",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
       "Identify pests and learn how to control them — biology, signs, health risks and treatment guidance for common pests.",
     url: "/library",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

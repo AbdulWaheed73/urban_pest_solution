@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/shared/contact-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
       "Request a free consultation, schedule a pest inspection, or ask us anything about our services.",
     url: "/contact",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

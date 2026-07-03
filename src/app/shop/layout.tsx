@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
+import { productListSchema, breadcrumbSchema, OG_IMAGE } from "@/lib/seo";
+import { products } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "Shop",
@@ -17,6 +20,7 @@ export const metadata: Metadata = {
       "Professional-grade pest control products and supplies for effective, science-driven pest management.",
     url: "/shop",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -25,5 +29,18 @@ export default function ShopLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          productListSchema(products),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Shop", path: "/shop" },
+          ]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }

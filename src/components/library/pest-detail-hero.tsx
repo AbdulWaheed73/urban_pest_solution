@@ -83,7 +83,9 @@ export function PestDetailHero({ pest }: { pest: PestDetail }) {
               <div className="group relative h-72 w-72 overflow-hidden rounded-3xl border border-white/20 shadow-2xl transition-transform duration-700 hover:scale-105">
                 <img
                   src={`/pests/${pest.slug}.jpg`}
-                  alt={pest.name}
+                  alt={`${pest.name} (${pest.scientificName})`}
+                  width={288}
+                  height={288}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

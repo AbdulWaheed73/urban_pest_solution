@@ -24,13 +24,17 @@ export function LibraryFilter({
     <div className="space-y-6">
       {/* Search bar */}
       <div className="relative max-w-xl mx-auto">
+        <label htmlFor="pest-search" className="sr-only">
+          Search pests by name
+        </label>
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-mid pointer-events-none" />
         <input
+          id="pest-search"
           type="search"
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
           placeholder="Search pests by name..."
-          className="w-full h-12 pl-11 pr-11 rounded-2xl bg-white border border-black/10 text-sm text-charcoal placeholder:text-slate-mid/70 shadow-sm focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-all"
+          className="w-full h-12 pl-11 pr-11 rounded-2xl bg-white border border-black/10 text-sm text-charcoal placeholder:text-slate-mid shadow-sm focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-all"
         />
         {query && (
           <button

@@ -5,6 +5,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { QueryProvider } from "@/providers/query-provider";
 import { CartProvider } from "@/providers/cart-provider";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,21 +40,13 @@ export const metadata: Metadata = {
     description: "Professional Pest Control Services — Where Science Meets Safety",
     type: "website",
     siteName: "Urban Pest Solution",
-    locale: "en_US",
-    images: [
-      {
-        url: "/images/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Urban Pest Solution",
-      },
-    ],
+    locale: "en_PK",
   },
+  // Only the card type here — title/description/image fall back per-page
+  // (to each page's metadata and the generated opengraph-image), so Twitter
+  // and Open Graph previews stay consistent.
   twitter: {
     card: "summary_large_image",
-    title: "Urban Pest Solution",
-    description: "Professional Pest Control Services — Where Science Meets Safety",
-    images: ["/images/logo.png"],
   },
   robots: {
     index: true,
@@ -66,12 +60,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en-PK" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-forest focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
+        >
+          Skip to content
+        </a>
         <QueryProvider>
           <CartProvider>
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main id="main" className="flex-1">{children}</main>
             <Footer />
           </CartProvider>
         </QueryProvider>

@@ -7,6 +7,7 @@ import { WhyChooseUsSection } from "@/components/sections/why-choose-us-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { CTASection } from "@/components/sections/cta-section";
 import { commercialSectors } from "@/data/commercial-sectors";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Commercial Pest Control",
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
       "Tailored commercial pest management across food & beverage, retail, hospitality, healthcare and education. Trusted by 30+ multinational clients.",
     url: "/commercial",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

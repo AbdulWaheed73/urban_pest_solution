@@ -4,34 +4,65 @@ import { CTASection } from "@/components/sections/cta-section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceCard } from "@/components/shared/service-card";
 import { services, serviceCategories } from "@/data/services";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema, SITE_URL, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Pest Control Services",
   description:
-    "Comprehensive management system consulting, training and auditing services across 21+ specialized domains including ISO standards, food safety, and sustainability.",
+    "Our full range of pest control services — general pest control, anti-termite treatment, rodent and bed bug management, fumigation, mosquito & dengue control, and commercial IPM programs across Pakistan.",
   keywords: [
     "pest control services",
-    "IPM consulting",
-    "ISO standards auditing",
-    "food safety training",
-    "pest management Pakistan",
+    "anti-termite treatment",
+    "rodent control",
+    "bed bug treatment",
+    "fumigation services Pakistan",
+    "mosquito dengue control",
+    "commercial IPM",
   ],
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Our Consulting Services | Urban Pest Solution",
+    title: "Pest Control Services | Urban Pest Solution",
     description:
-      "Management system consulting, training and auditing services against best practices and international standards.",
+      "General pest control, anti-termite treatment, rodent & bed bug management, fumigation, mosquito control and commercial IPM programs across Pakistan.",
     url: "/services",
     type: "website",
+    images: [OG_IMAGE],
   },
+};
+
+const serviceListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      name: s.title,
+      description: s.description,
+      serviceType: s.title,
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: { "@type": "Country", name: "Pakistan" },
+    },
+  })),
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          serviceListSchema,
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
+      />
       <HeroSection
-        title="Our Consulting Services"
-        subtitle="We provide management system consulting, training and auditing services against best practices and international standards, focused on meeting our commitments with our clients."
+        title="Our Pest Control Services"
+        subtitle="From everyday pest prevention to specialized termite, rodent and fumigation treatments — science-driven, eco-friendly solutions for homes, businesses and facilities across Pakistan."
         compact
       />
 
@@ -39,8 +70,8 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="What We Offer"
-            title="Comprehensive Solutions"
-            subtitle="Spanning management systems, food safety, information security, and sustainability standards."
+            title="Comprehensive Pest Solutions"
+            subtitle="Spanning general pest control, specialized treatments, commercial IPM programs and public-health services."
           />
 
           {serviceCategories.map((category) => {
@@ -69,8 +100,8 @@ export default function ServicesPage() {
       </section>
 
       <CTASection
-        title="Let Us Help You Grow Your Business"
-        subtitle="Partner with us for world-class consulting, training, and auditing services that drive real results."
+        title="Not Sure Which Service You Need?"
+        subtitle="Book a free inspection and our team will identify the problem and recommend the right treatment for your home or facility."
       />
     </>
   );

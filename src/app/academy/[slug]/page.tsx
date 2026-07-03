@@ -6,6 +6,8 @@ import { TrainingDetailHero } from "@/components/academy/training-detail-hero";
 import { TrainingCard } from "@/components/academy/training-card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/seo/json-ld";
+import { courseSchema, breadcrumbSchema } from "@/lib/seo";
 import {
   ChevronLeft,
   Clock,
@@ -28,7 +30,7 @@ export async function generateMetadata(
   const session = trainingSessions.find((s) => s.slug === slug);
   if (!session) return { title: "Session Not Found" };
   return {
-    title: `${session.title} — Urban Pest Academy | Urban Pest Solution`,
+    title: { absolute: `${session.title} — Urban Pest Academy | Urban Pest Solution` },
     description: session.summary,
     keywords: [
       session.title,
@@ -77,6 +79,16 @@ export default async function TrainingDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          courseSchema(session),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Urban Pest Academy", path: "/academy" },
+            { name: session.title, path: `/academy/${session.slug}` },
+          ]),
+        ]}
+      />
       <TrainingDetailHero session={session} />
 
       {/* Back nav */}

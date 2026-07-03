@@ -25,7 +25,7 @@ export function GET() {
 
   lines.push("## Core Pages");
   lines.push(`- [Home](${baseUrl}/): Overview of Urban Pest Solution and IPM approach`);
-  lines.push(`- [Services](${baseUrl}/services): Consulting, training and auditing services`);
+  lines.push(`- [Services](${baseUrl}/services): Pest control services — general, termite, rodent, bed bug, fumigation, mosquito and commercial IPM`);
   lines.push(`- [Commercial Pest Control](${baseUrl}/commercial): Pest management for food & beverage, retail, hospitality, healthcare and more`);
   lines.push(`- [Residential Pest Control](${baseUrl}/residential): Home and family pest protection`);
   lines.push(`- [Shop](${baseUrl}/shop): Professional pest control products and supplies`);

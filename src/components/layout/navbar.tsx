@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { cn } from "@/lib/utils";
@@ -32,7 +32,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2 group">
           <img
-            src="/images/logo.png"
+            src="/images/logo-sm.png"
             alt="Urban Pest Solution"
             width={38}
             height={38}
@@ -54,6 +54,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
               className={cn(
                 "relative whitespace-nowrap px-2.5 py-2 rounded-lg text-[13px] lg:text-sm font-medium transition-all duration-200",
                 pathname === link.href
@@ -99,6 +100,7 @@ export function Navbar() {
             </SheetTrigger>
           </div>
           <SheetContent side="right" className="w-80 p-0">
+            <SheetTitle className="sr-only">Menu</SheetTitle>
             <div className="flex flex-col h-full">
               <div className="flex flex-col gap-1 p-6 pt-12">
                 {siteConfig.navLinks.map((link) => (
@@ -106,6 +108,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={cn(
                       "px-4 py-3 rounded-xl text-base font-medium transition-all",
                       pathname === link.href

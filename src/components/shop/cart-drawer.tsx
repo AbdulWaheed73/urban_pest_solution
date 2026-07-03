@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/providers/cart-provider";
 import { ShoppingCart, Plus, Minus, Trash2, ShoppingBag } from "lucide-react";
@@ -37,7 +37,9 @@ export function CartDrawer() {
               <ShoppingBag className="h-5 w-5 text-forest" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-charcoal">Your Cart</h2>
+              <SheetTitle className="text-lg font-bold text-charcoal">
+                Your Cart
+              </SheetTitle>
               <p className="text-xs text-slate-mid">
                 {totalItems} {totalItems === 1 ? "item" : "items"}
               </p>
@@ -79,6 +81,7 @@ export function CartDrawer() {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity - 1)
                           }
+                          aria-label={`Decrease quantity of ${item.product.name}`}
                           className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-black/10 hover:bg-forest-light transition-colors"
                         >
                           <Minus className="h-3 w-3" />
@@ -90,12 +93,14 @@ export function CartDrawer() {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity + 1)
                           }
+                          aria-label={`Increase quantity of ${item.product.name}`}
                           className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-black/10 hover:bg-forest-light transition-colors"
                         >
                           <Plus className="h-3 w-3" />
                         </button>
                         <button
                           onClick={() => removeItem(item.product.id)}
+                          aria-label={`Remove ${item.product.name} from cart`}
                           className="ml-auto flex h-7 w-7 items-center justify-center rounded-lg hover:bg-danger/10 transition-colors"
                         >
                           <Trash2 className="h-3.5 w-3.5 text-danger" />
